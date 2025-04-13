@@ -1,0 +1,123 @@
+/* Basic Reset & Body Styling (Gemini-ish dark theme) */
+body {
+    margin: 0;
+    font-family: 'Google Sans', sans-serif; /* Suggesting a font similar to Google's */
+    background-color: #131314; /* Dark background */
+    color: #E8EAED; /* Light grey text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* If 'Google Sans' isn't available, fall back */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+body {
+    font-family: 'Roboto', sans-serif; /* Fallback font */
+}
+
+
+/* Chat Container */
+.chat-container {
+    width: 100%;
+    max-width: 700px; /* Limit chat width */
+    height: 85vh; /* Limit height */
+    background-color: #1E1F20; /* Slightly lighter dark bg */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Stack output and input vertically */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Prevent content spillover */
+}
+
+/* Chat Output Area */
+.chat-output {
+    flex-grow: 1; /* Takes up available vertical space */
+    overflow-y: auto; /* Add scrollbar if content exceeds height */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between messages */
+}
+
+/* Styling for Messages */
+.user-message, .bot-message {
+    max-width: 80%; /* Messages don't span full width */
+    padding: 10px 15px;
+    border-radius: 15px;
+    line-height: 1.4;
+}
+
+.user-message {
+    background-color: #3C4043; /* User message background */
+    align-self: flex-end; /* Align user messages to the right */
+    border-bottom-right-radius: 5px; /* Slight visual difference */
+    color: #E8EAED;
+}
+
+.bot-message {
+    background-color: #413356; /* Bot message background (Gemini-like purple/blue) */
+    align-self: flex-start; /* Align bot messages to the left */
+    border-bottom-left-radius: 5px; /* Slight visual difference */
+    color: #E8EAED;
+}
+
+.bot-message p, .user-message p {
+    margin: 0; /* Remove default paragraph margins */
+}
+
+/* Input Area Styling */
+.chat-input-area {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #3C4043; /* Separator line */
+    background-color: #1E1F20;
+}
+
+#user-input {
+    flex-grow: 1; /* Input field takes available space */
+    padding: 10px 15px;
+    border: 1px solid #5F6368;
+    border-radius: 20px; /* Rounded corners */
+    background-color: #3C4043; /* Darker input field */
+    color: #E8EAED;
+    font-size: 1em;
+    margin-right: 10px;
+    outline: none; /* Remove default browser outline */
+}
+
+#user-input:focus {
+    border-color: #8AB4F8; /* Highlight border on focus */
+}
+
+#send-button {
+    padding: 10px 20px;
+    background-color: #8AB4F8; /* Google blue accent */
+    color: #202124; /* Dark text on button */
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+#send-button:hover {
+    background-color: #AECBFA; /* Lighter blue on hover */
+}
+
+/* Scrollbar styling (Optional, for browsers supporting it) */
+.chat-output::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-output::-webkit-scrollbar-track {
+    background: #1E1F20;
+}
+
+.chat-output::-webkit-scrollbar-thumb {
+    background-color: #5F6368;
+    border-radius: 10px;
+    border: 2px solid #1E1F20; /* Padding around thumb */
+}
