@@ -3,23 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ask Neshwan</title>
-    <link rel="stylesheet" href="style.css">
+    <title>About Neshwan</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f0f8ff; /* Light blue background (Gemini-esque) */
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #e0f2f7; /* Slightly darker blue/teal container */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #1e88e5; /* Primary blue heading color */
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        .section {
+            margin-bottom: 2em;
+            padding-bottom: 1em;
+            border-bottom: 1px solid #b0bec5; /* Light gray divider */
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .interests ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .interests li {
+            background-color: #bbdefb; /* Lighter blue for interest tags */
+            color: #1565c0; /* Darker blue text for tags */
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .tech-skills ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+        .favorite-things ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+        .highlight {
+            color: #00bcd4; /* Teal highlight color */
+            font-weight: bold;
+        }
+        .contact-info {
+            margin-top: 2em;
+            font-style: italic;
+            color: #777;
+        }
+        #surprise-button {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #ffeb3b; /* Yellow button */
+            color: #212121; /* Dark text */
+            font-size: 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            font-weight: bold;
+        }
+        #surprise-button:hover {
+            background-color: #fdd835; /* Slightly darker yellow */
+        }
+        #pattiche-text {
+            display: none;
+            position: fixed; /* Overlay the entire screen */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent overlay */
+            color: #ffffff; /* White text */
+            font-size: 96px; /* Huge text */
+            text-align: center;
+            vertical-align: middle; /* Vertically center the text */
+            line-height: 100vh;  /* to vertically center*/
+            z-index: 1000; /* Ensure it's on top of everything */
+            cursor: pointer; /* make it clear you can click to close */
+        }
+    </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div id="chat-output" class="chat-output">
-            <div class="bot-message">
-                <p>Hi there! Ask me anything about Neshwan.Like who is he?</p>
-            </div>
-            </div>
+    <div class="container">
+        <h1>Hi, I'm Neshwan!</h1>
+        <p>A curious and enthusiastic 12th-grade student from the beautiful state of Kerala, India. I have a wide range of interests, from the vastness of space to the intricate worlds of technology and anime.</p>
 
-        <div class="chat-input-area">
-            <input type="text" id="user-input" placeholder="Ask a question..." autocomplete="off">
-            <button id="send-button">Send</button>
+        <div class="section">
+            <h2>My Background</h2>
+            <p>Currently, I'm studying in the 12th grade at <span class="highlight">MES International School Pattambi</span>. I live in <span class="highlight">Ayanikkode, Malappuram, Kerala</span>. Being from Kerala, I appreciate the rich culture and vibrant environment around me.</p>
         </div>
+
+        <div class="section interests">
+            <h2>Hobbies and Interests</h2>
+            <p>I enjoy spending my time exploring various passions:</p>
+            <ul>
+                <li>Stargazing</li>
+                <li>Traveling</li>
+                <li>Talking with my best friend</li>
+                <li>Researching Space</li>
+                <li>New Technology</li>
+                <li>One Piece (Anime)</li>
+            </ul>
+            <p>Whether it's looking up at the night sky or diving into the latest tech innovations, I love learning and discovering new things.</p>
+        </div>
+
+        <div class="section">
+            <h2>Passions and Personality</h2>
+            <p>I'm passionate about <span class="highlight">exploring and experiencing new things</span>. I also value my friendships deeply, especially my bond with my best friend. I'd describe myself as someone who enjoys a bit of thrill and adventure in life!</p>
+        </div>
+
+        <div class="section tech-skills">
+            <h2>Tech Skills</h2>
+            <p>I'm currently exploring the world of programming and have a basic understanding of:</p>
+            <ul>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>JavaScript</li>
+            </ul>
+            <p>I'm keen to see where my interest in technology takes me!</p>
+        </div>
+
+        <div class="section favorite-things">
+            <h2>Favorites</h2>
+            <p>A couple of things I particularly enjoy:</p>
+            <ul>
+                <li><strong>Book:</strong> 'Atomic Habits' - a great read for building positive habits.</li>
+                <li><strong>Movies:</strong> Films by Christopher Nolan, such as Interstellar and Oppenheimer.</li>
+                <li><strong>Games:</strong> I enjoy playing PC and console games.</li>
+            </ul>
+        </div>
+
+        <div class="section relationships">
+            <h2>Relationships</h2>
+            <p>I'm currently single and not actively looking for a relationship. My best friend is a very important person in my life. We are just friends!</p>
+        </div>
+
+        <div class="contact-info">
+            <p>More to come as I continue my journey!</p>
+        </div>
+        <button id="surprise-button">Click For Surprise</button>
     </div>
 
-    <script src="script.js"></script>
+    <div id="pattiche-text">PATTICHE</div>
+
+    <script>
+        const surpriseButton = document.getElementById('surprise-button');
+        const patticheText = document.getElementById('pattiche-text');
+
+        surpriseButton.addEventListener('click', () => {
+            patticheText.style.display = 'block';
+        });
+
+        patticheText.addEventListener('click', () => {
+            patticheText.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
