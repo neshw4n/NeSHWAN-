@@ -4,32 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Neshwan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-            background-color: #f0f8ff; /* Light blue background (Gemini-esque) */
+            font-family: 'Inter', sans-serif; /* More modern font */
+            margin: 0; /* Remove default body margin */
+            line-height: 1.7; /* Improved line height for better readability */
+            background-color: #f0f8ff;
             color: #333;
+            padding-bottom: 70px; /* Add padding at the bottom for the surprise button */
+            position: relative; /* Needed for absolute positioning of surprise button */
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 30px;
-            background-color: #e0f2f7; /* Slightly darker blue/teal container */
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 40px; /* Increased padding */
+            background-color: #e0f2f7;
+            border-radius: 12px; /* Slightly more rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
         }
         h1, h2, h3 {
-            color: #1e88e5; /* Primary blue heading color */
+            color: #1e88e5;
+            font-weight: 600; /* Medium font weight for headings */
+            margin-bottom: 0.5em; /* Consistent margin below headings */
+        }
+        h1 {
+            font-size: 2.5rem; /* Larger heading */
+            letter-spacing: -0.02em;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        h3 {
+            font-size: 1.5rem;
         }
         p {
-            margin-bottom: 1em;
+            margin-bottom: 1.5em; /* Increased paragraph margin */
+            color: #444; /* Slightly darker text for body */
         }
         .section {
-            margin-bottom: 2em;
-            padding-bottom: 1em;
-            border-bottom: 1px solid #b0bec5; /* Light gray divider */
+            margin-bottom: 3em; /* Increased section margin */
+            padding-bottom: 2.5em; /* Increased section padding */
+            border-bottom: 1px solid #b0bec5;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards; /* Added fade-in animation */
         }
         .section:last-child {
             border-bottom: none;
@@ -38,125 +56,188 @@
             list-style: none;
             padding: 0;
             display: flex;
-            gap: 10px;
+            gap: 15px; /* Increased gap */
             flex-wrap: wrap;
+            margin-left: -10px; /* Adjusted to align with container padding */
         }
         .interests li {
-            background-color: #bbdefb; /* Lighter blue for interest tags */
-            color: #1565c0; /* Darker blue text for tags */
-            padding: 5px 10px;
-            border-radius: 5px;
+            background-color: #bbdefb;
+            color: #1565c0;
+            padding: 10px 15px; /* Increased padding */
+            border-radius: 25px; /* Fully rounded corners */
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Added transitions */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 500; /* Medium font weight for tags */
+            margin-left: 10px; /* added margin left */
+        }
+        .interests li:hover {
+            transform: translateY(-2px) scale(1.05); /* Slight lift and scale on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         .tech-skills ul {
-            list-style: disc;
-            margin-left: 20px;
+            list-style: none; /* Changed to none and using custom bullets */
+            padding: 0;
+            margin-left: 0;
+        }
+        .tech-skills li::before {
+            content: '•';  /* Custom bullet */
+            color: #00bcd4; /* Teal bullet color */
+            margin-right: 10px; /* Space between bullet and text */
+        }
+        .tech-skills li{
+             margin-bottom: 0.7em;
         }
         .favorite-things ul {
-            list-style: disc;
-            margin-left: 20px;
+            list-style: none; /* Changed to none and using custom bullets */
+            padding: 0;
+            margin-left: 0;
         }
+         .favorite-things li::before {
+            content: '•';  /* Custom bullet */
+            color: #00bcd4; /* Teal bullet color */
+            margin-right: 10px; /* Space between bullet and text */
+        }
+        .favorite-things li{
+             margin-bottom: 0.7em;
+        }
+
         .highlight {
-            color: #00bcd4; /* Teal highlight color */
-            font-weight: bold;
+            color: #00bcd4;
+            font-weight: 600; /* Medium font weight for highlights */
         }
         .contact-info {
-            margin-top: 2em;
+            margin-top: 3em; /* Increased margin */
             font-style: italic;
-            color: #777;
+            color: #666; /* Slightly darker color */
         }
         #surprise-button {
             display: block;
             width: 100%;
-            padding: 20px;
-            margin-top: 20px;
-            background-color: #ffeb3b; /* Yellow button */
-            color: #212121; /* Dark text */
-            font-size: 24px;
+            padding: 25px; /* Increased padding */
+            margin-top: 30px; /* Increased margin */
+            background-color: #ffeb3b;
+            color: #212121;
+            font-size: 30px; /* Increased font size */
             border: none;
-            border-radius: 8px;
+            border-radius: 12px; /* More rounded corners */
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease; /* Added transform and shadow */
             text-align: center;
-            font-weight: bold;
+            font-weight: 700; /* Bold font weight */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed; /* Fix button to bottom */
+            bottom: 0;
+            left: 0;
+            border-top: 1px solid #fdd835;
         }
         #surprise-button:hover {
-            background-color: #fdd835; /* Slightly darker yellow */
+            background-color: #fdd835;
+            transform: translateY(-2px) scale(1.02); /* Slight lift and scale on hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        #surprise-button:active{
+           transform: translateY(0) scale(1);
+           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         #pattiche-text {
             display: none;
-            position: fixed; /* Overlay the entire screen */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent overlay */
-            color: #ffffff; /* White text */
-            font-size: 96px; /* Huge text */
+            background-color: rgba(0, 0, 0, 0.85); /* Slightly darker overlay */
+            color: #ffffff;
+            font-size: 120px; /* Increased font size */
             text-align: center;
-            vertical-align: middle; /* Vertically center the text */
-            line-height: 100vh;  /* to vertically center*/
-            z-index: 1000; /* Ensure it's on top of everything */
-            cursor: pointer; /* make it clear you can click to close */
+            vertical-align: middle;
+            line-height: 100vh;
+            z-index: 1000;
+            cursor: pointer;
+            font-weight: 700; /* Bold font weight */
+            letter-spacing: -0.05em; /* Add letter spacing */
+            animation: zoomIn 0.5s ease; /* Added zoom-in animation */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Hi, I'm Neshwan!</h1>
-        <p>A curious and enthusiastic 12th-grade student from the beautiful state of Kerala, India. I have a wide range of interests, from the vastness of space to the intricate worlds of technology and anime.</p>
+        <p>A curious and enthusiastic 12th-grade student from Kerala, India, with a passion for exploring the realms of technology, space, and anime.</p>
 
         <div class="section">
             <h2>My Background</h2>
-            <p>Currently, I'm studying in the 12th grade at <span class="highlight">MES International School Pattambi</span>. I live in <span class="highlight">Ayanikkode, Malappuram, Kerala</span>. Being from Kerala, I appreciate the rich culture and vibrant environment around me.</p>
+            <p>I'm currently a 12th grader at <span class="highlight">MES International School Pattambi</span>, residing in Ayanikkode, Malappuram, Kerala.  I am grateful for the rich cultural heritage of Kerala.</p>
         </div>
 
         <div class="section interests">
             <h2>Hobbies and Interests</h2>
-            <p>I enjoy spending my time exploring various passions:</p>
+            <p>I love exploring these areas:</p>
             <ul>
                 <li>Stargazing</li>
                 <li>Traveling</li>
-                <li>Talking with my best friend</li>
+                <li>Hanging out with my best friend</li>
                 <li>Researching Space</li>
                 <li>New Technology</li>
                 <li>One Piece (Anime)</li>
+                <li>Playing Basketball</li>
             </ul>
-            <p>Whether it's looking up at the night sky or diving into the latest tech innovations, I love learning and discovering new things.</p>
+            <p>I'm always eager to expand my knowledge and experience new things, whether it's under the night sky or diving into the latest technological advancements.</p>
         </div>
 
         <div class="section">
             <h2>Passions and Personality</h2>
-            <p>I'm passionate about <span class="highlight">exploring and experiencing new things</span>. I also value my friendships deeply, especially my bond with my best friend. I'd describe myself as someone who enjoys a bit of thrill and adventure in life!</p>
+            <p>I'm driven by a desire to <span class="highlight">explore and experience</span> the world. I'd describe myself as someone who embraces adventure and enjoys the thrill of discovery!</p>
         </div>
 
         <div class="section tech-skills">
             <h2>Tech Skills</h2>
-            <p>I'm currently exploring the world of programming and have a basic understanding of:</p>
+            <p>I'm currently exploring the world of programming with a basic understanding of:</p>
             <ul>
                 <li>Python</li>
                 <li>HTML</li>
                 <li>JavaScript</li>
             </ul>
-            <p>I'm keen to see where my interest in technology takes me!</p>
+            <p>I'm excited to see where my interest in technology will lead.</p>
         </div>
 
         <div class="section favorite-things">
             <h2>Favorites</h2>
-            <p>A couple of things I particularly enjoy:</p>
+            <p>Here are a few things I particularly enjoy:</p>
             <ul>
-                <li><strong>Book:</strong> 'Atomic Habits' - a great read for building positive habits.</li>
-                <li><strong>Movies:</strong> Films by Christopher Nolan, such as Interstellar and Oppenheimer.</li>
+                <li><strong>Book:</strong> 'Atomic Habits' - A fantastic guide for building positive habits.</li>
+                <li><strong>Movies:</strong> Films by Christopher Nolan, like Interstellar and Oppenheimer.</li>
                 <li><strong>Games:</strong> I enjoy playing PC and console games.</li>
             </ul>
         </div>
 
+        <div class="section">
+            <h2>My Best Friend</h2>
+            <p>My best friend is a huge precious gem  in my life.</p>
+        </div>
+
         <div class="section relationships">
             <h2>Relationships</h2>
-            <p>I'm currently single and not actively looking for a relationship. My best friend is a very important person in my life. We are just friends!</p>
+            <p>I'm currently single and focusing on my personal growth.</p>
         </div>
 
         <div class="contact-info">
-            <p>More to come as I continue my journey!</p>
+            <p>My journey is just beginning, and there's much more to come!</p>
         </div>
         <button id="surprise-button">Click For Surprise</button>
     </div>
@@ -169,10 +250,12 @@
 
         surpriseButton.addEventListener('click', () => {
             patticheText.style.display = 'block';
+            document.body.style.overflow = 'hidden'; /* Prevent scroll on main page*/
         });
 
         patticheText.addEventListener('click', () => {
             patticheText.style.display = 'none';
+            document.body.style.overflow = 'auto'; /* Restore scroll on main page */
         });
     </script>
 </body>
